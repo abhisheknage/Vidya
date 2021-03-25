@@ -1,5 +1,5 @@
 # My Awesome Project
-Write a short sentence or two about this project and what it does. Be sure to include a link and a screenshot (we're front end devs so we can actually see our work!).
+Vidya, sanskrit term for "Knowledge" is an application that allows you take notes, and generate Anki cards from your notes all in one app. Anki is a great tool for spaced repetition, but does not lend itself well for note taking. This application serves to fill that gap.
 
 **Link to project:** http://recruiters-love-seeing-live-demos.com/
 
