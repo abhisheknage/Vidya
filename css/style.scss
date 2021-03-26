@@ -1,0 +1,113 @@
+$primaryColor: #01497c;
+$primaryDark: #012a4a;
+$secondaryColor: #b7c6f4;
+
+$fontDark: #000000;
+$fontLight: #FFFFFF;
+$fontGrey: #D3D3D3;
+$font-stack: Helvetica, sans-serif;
+$p-font-sizes: (
+  null  : 15px,
+  480px : 16px,
+  640px : 17px,
+  1024px: 35px
+);
+
+@mixin font-size($fs-map) {
+    @each $fs-breakpoint, $fs-font-size in $fs-map {
+      @if $fs-breakpoint == null {
+        font-size: $fs-font-size;
+      }
+      @else {
+        @media screen and (min-width: $fs-breakpoint) {
+          font-size: $fs-font-size;
+        }
+      }
+    }
+  }
+
+
+//Links Mixin
+@mixin links ($link, $visited, $hover, $active) {
+    & {
+        color: $link;
+        &:visited {
+            color: $visited;
+        }
+        &:hover {
+            color: $hover;
+        }
+        &:active, &:focus {
+            color: $active;
+        }
+    }
+}
+
+
+
+
+
+header {
+    background: $primaryDark;
+    font: 100% $font-stack;
+    @include font-size($p-font-sizes);
+    color: $fontLight;
+    display: flex;
+    justify-content: left;
+    padding: 20px;
+}
+
+p {
+    @include font-size($p-font-sizes);
+  }
+
+.sidenav
+  {
+     
+    height: 100%;
+  
+    /* Full-height: remove this if you want "auto" height */
+    width: 160px;
+  
+    /* Set the width of the sidebar */
+    position: fixed;
+  
+    /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1;
+  
+    /* Stay on top */
+    top: 5;
+  
+    /* Stay at the top */
+    left: 0;
+    background-color: $primaryColor;
+  
+    /* Black */
+    overflow-x: hidden;
+  
+    /* Disable horizontal scroll */
+    padding-top: 20px;
+
+    color: $fontLight
+  }
+  
+a {@include links ($fontLight, $fontLight, $fontGrey, $fontLight);}
+
+a {
+    padding: 10px 10px;
+    font-size: 25px;
+}
+
+div.form {
+    justify-content: center;
+    background: $primaryDark;
+    display: block;
+}
+
+form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
