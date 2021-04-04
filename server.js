@@ -7,6 +7,8 @@ const MongoClient = require("mongodb").MongoClient;
 const app = express();
 
 app.set("view engine", "ejs");
+app.use(express.json());
+app.use(express.static("public"));
 
 // Database
 const connectionString = process.env.connectionString;
@@ -14,19 +16,23 @@ console.log(connectionString);
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then((client) => {
     console.log("Connected to Database");
-    const db = client.db("star-wars-quotes");
-    const quotesCollection = db.collection("quotes");
+    const db = client.db("Vidya");
+    const notesCollection = db.collection("Notes");
     // Middleware
     app.use(bodyParser.urlencoded({ extended: true }));
-    app.use(bodyParser.json());
-    app.use(express.static("public"));
+
+    // GET, POST, PUT, DELETE Requests
     app.get("/", (req, res) => {
-      console.log(req);
+      // console.log(req);
       //   res.send("Hello World!");
-      db.collection("quotes")
+      notesCollection
         .find()
         .toArray()
-        .then((results) => res.render("index.ejs", { quotes: results }));
+        .then((results) => res.render("index.ejs", { notesArray: results }));
+      // db.collection("quotes")
+      //   .find()
+      //   .toArray()
+      //   .then((results) => res.render("index.ejs", { quotes: results }));
       // console.log(cursor);
       // res.render("index.ejs", {});
       // res.sendFile(__dirname + "/index.html");

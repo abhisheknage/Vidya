@@ -1,15 +1,31 @@
+body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: center;
+  height: 100vh;
+}
+
 header {
   background: #012a4a;
   font: 100% Helvetica, sans-serif;
   font-size: 15px;
-  color: #FFFFFF;
-  display: -webkit-box;
+  color: #ffffff;
+  /* display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
+  display: flex; */
+  /* -webkit-box-pack: left;
+  -ms-flex-pack: left;
+  justify-content: left; */
   padding: 20px;
+  order: 1;
+}
+
+.notesArea {
+  order: 2;
+  flex-grow: 5;
+  display: inline-block;
 }
 
 @media screen and (min-width: 480px) {
@@ -57,11 +73,11 @@ p {
   /* Full-height: remove this if you want "auto" height */
   width: 160px;
   /* Set the width of the sidebar */
-  position: fixed;
+  /* position: fixed; */
   /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1;
   /* Stay on top */
-  top: 5;
+  top: 0;
   /* Stay at the top */
   left: 0;
   background-color: #01497c;
@@ -69,23 +85,24 @@ p {
   overflow-x: hidden;
   /* Disable horizontal scroll */
   padding-top: 20px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 a {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 a:visited {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 a:hover {
-  color: #D3D3D3;
+  color: #d3d3d3;
 }
 
-a:active, a:focus {
-  color: #FFFFFF;
+a:active,
+a:focus {
+  color: #ffffff;
 }
 
 a {
@@ -95,8 +112,8 @@ a {
 
 div.form {
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   background: #012a4a;
   display: block;
 }
