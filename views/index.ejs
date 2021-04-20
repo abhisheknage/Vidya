@@ -8,27 +8,31 @@
     <title>Vidya Notes</title>
   </head>
   <body>
-    <header>
-      <div id="mySidenav" class="sidenav">
-        <p>Vidya Notes</p>
-        <div class="form">
-          <form name="searchform">
-            <input type="search" id="query" name="q" placeholder="Search..." />
-            <button>Search</button>
-          </form>
-        </div>
+    <div id = "left" class = "column">
+      <div class="top-left"></div>
+      <div class="bottom-left"></div>
+        <p>Vidya Notes
+          <div class="form">
+            <form name="searchform">
+              <input type="search" id="query" name="q" placeholder="Search..." />
+              <button>Search</button>
+            </form>
+          </div>
         <a href="#">Notes</a>
         <br />
         <a href="#">Tasks</a>
         <br />
-        <a href="#">Anki</a>
+        <a href="#">Anki</a> 
       </div>
-    </header>
-    <div class="notesArea">
-      <h2>Notes</h2>
 
-      <p><%= notesArray[0].items[0].content %></p>
+    <div id="right" class="column">
+      <div class="top-right"></div>
+      <div class="bottom-right">
+        <h2>Notes</h2>
+        <p><%= notesArray[0].items[0].content %></p>
+      </div>
     </div>
+
     <script src="/main.js"></script>
   </body>
 </html>

@@ -43,27 +43,84 @@ $p-font-sizes: (
     }
 }
 
+body {
+  height: 100%;   
+  overflow: hidden;  /*makes the body non-scrollable (we will add scrolling to the sidebar and main content containers)*/
+  margin: 0px;  /*removes default style*/
+  display: flex;  /*enables flex content for its children*/
+  box-sizing: border-box;
+}
 
+
+.column {
+  height: 100%;  /*allows both columns to span the full height of the browser window*/
+  display: flex;
+  flex-direction: column;  /*places the left and right headers above the bottom content*/
+}
+
+#left {
+  flex-shrink: 0;  /*makes sure that content is not cut off in a smaller browser window*/
+  background-color: $secondaryColor;
+}
+
+
+.top-left {
+  flex-shink: 0;
+  padding-top: 50px;
+  background-color: $primaryDark;
+}
+
+.top-right {
+  flex-shrink: 0;
+  display: flex;
+  padding-top: 50px;
+  background-color: $primaryDark;
+}
+
+.bottom-left {
+  flex-grow: 1;  /*ensures that the container will take up the full height of the parent container*/
+  //overflow-y: ;  /*adds scroll to this container*/
+  //background-color: $secondaryColor;
+  //height: 100vh;
+}
+
+#right {
+  width: 100%;
+}
+
+ul {
+  display: inline-flex;
+  list-style: none;
+}
 
 
 
 header {
+    //flex: 1;
+    //flex-direction: column;
     background: $primaryDark;
     font: 100% $font-stack;
     @include font-size($p-font-sizes);
     color: $fontLight;
-    display: flex;
+    //display: flex;
     justify-content: left;
     padding: 20px;
+
 }
 
 p {
-    @include font-size($p-font-sizes);
+  flex: 1; 
+  display: flex;
+  flex-grow: 1;
+
+  @include font-size($p-font-sizes);
+  padding-left: 5px;
   }
 
+
+
 .sidenav
-  {
-     
+  { order: 1;
     height: 100%;
   
     /* Full-height: remove this if you want "auto" height */
@@ -109,5 +166,12 @@ form
     display: inline-block;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
+    text-align: left;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.notesArea {
+  display: flex;
+  order: 2
 }
