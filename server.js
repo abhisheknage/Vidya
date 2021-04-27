@@ -30,7 +30,9 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
       notesCollection
         .find()
         .toArray()
-        .then((results) => res.render("index.ejs", { notesArray: results }));
+        .then((results) => {
+          console.log(results)
+          res.render("index.ejs", { notesArray: results })});
     });
     app.get("/notes/:id", (req, res) => {
       console.log(req);

@@ -7,32 +7,99 @@
     <link rel="stylesheet" href="css/style.css" />
     <title>Vidya Notes</title>
   </head>
-  <body>
+  <body onload="document.getElementById('defaultOpen').click();">
     <div id = "left" class = "column">
       <div class="top-left"></div>
-      <div class="bottom-left"></div>
-        <p>Vidya Notes
-          <div class="form">
-            <form name="searchform">
-              <input type="search" id="query" name="q" placeholder="Search..." />
-              <button>Search</button>
-            </form>
-          </div>
-        <a href="#">Notes</a>
-        <br />
-        <a href="#">Tasks</a>
-        <br />
-        <a href="#">Anki</a> 
+      <div class="bottom-left">
+        <h1>Vidya Notes</h1>
+        <div class="form">
+          <form name="searchform">
+            <input type="search" id="query" name="q" placeholder="Search..." />
+            <button>Search</button>
+          </form>
+        </div>
+        
+        <!-- Tab links -->
+        <div class = "tab">
+          <button class="tablinks" onclick="openTab(event, 'Dashboard')" id="defaultOpen">Dashboard</button> 
+          <br />
+          <button class="tablinks" onclick="openTab(event, 'Notes')">Notes</button>
+          <br />
+          <button class="tablinks" onclick="openTab(event, 'Tasks')">Tasks</button>
+          <br />
+          <button class="tablinks" onclick="openTab(event, 'Anki')">Anki</button>
+          
+        </div>
+
       </div>
+    </div>
+
+
+
 
     <div id="right" class="column">
       <div class="top-right"></div>
       <div class="bottom-right">
-        <h2>Notes</h2>
-        <p><%= notesArray[0].items[0].content %></p>
+        
+        <!-- Tab content -->
+
+        <div id="Dashboard" class="tabcontent">
+          <h2>Dashboard</h2>
+          <h3>Notes</h3>
+          <% notesArray.forEach(note => {%>
+            <p> <%= note.name %> </p>
+          
+            <script>
+              console.log("test")
+            </script>
+            <%})%> 
+          <h3>Tasks</h3>
+          <p></p>
+          <h3>Anki</h3>
+          <p></p>
+          </div>
+
+        <div id="Notes" class="tabcontent">
+          <h2>Notes</h2>
+          <% for (note in notesArray) {%>
+            <p> <%= note.name %> </p>
+            <%}%>
+            
+          </div>
+      
+        <div id="Tasks" class="tabcontent">
+          <h2>Tasks</h2>
+          <p>tasks tabs para</p>
+        </div>
+
+        <div id="Anki" class="tabcontent">
+          <h2>Anki</h2>
+          <p>tasks tabs para</p>
+        </div>
+
       </div>
     </div>
 
-    <script src="/main.js"></script>
+  
+    <script>
+      function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+      </script>
+        
+  
   </body>
+
+  
 </html>
+

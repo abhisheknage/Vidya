@@ -6,11 +6,18 @@ $fontDark: #000000;
 $fontLight: #FFFFFF;
 $fontGrey: #D3D3D3;
 $font-stack: Helvetica, sans-serif;
-$p-font-sizes: (
+$h1-font-sizes: (
   null  : 15px,
   480px : 16px,
   640px : 17px,
   1024px: 35px
+);
+
+$tab-font-sizes: (
+  null  : 12px,
+  480px : 14px,
+  640px : 16px,
+  1024px: 18px
 );
 
 @mixin font-size($fs-map) {
@@ -60,12 +67,12 @@ body {
 
 #left {
   flex-shrink: 0;  /*makes sure that content is not cut off in a smaller browser window*/
-  background-color: $secondaryColor;
+  background-color: $primaryColor;
 }
 
 
 .top-left {
-  flex-shink: 0;
+  flex-shrink: 0;
   padding-top: 50px;
   background-color: $primaryDark;
 }
@@ -80,17 +87,17 @@ body {
 .bottom-left {
   flex-grow: 1;  /*ensures that the container will take up the full height of the parent container*/
   //overflow-y: ;  /*adds scroll to this container*/
-  //background-color: $secondaryColor;
-  //height: 100vh;
+  background-color: $primaryColor;
+  color: $fontLight;
+  height: 100vh;
 }
 
 #right {
   width: 100%;
 }
 
-ul {
-  display: inline-flex;
-  list-style: none;
+.bottom-right {
+  padding-left: 10px;
 }
 
 
@@ -100,20 +107,28 @@ header {
     //flex-direction: column;
     background: $primaryDark;
     font: 100% $font-stack;
-    @include font-size($p-font-sizes);
+    @include font-size($h1-font-sizes);
     color: $fontLight;
     //display: flex;
     justify-content: left;
     padding: 20px;
+    padding-left: 10px;
 
 }
+
+h1 {
+  flex: 1; 
+  display: flex;
+  flex-grow: 1;
+
+  @include font-size($h1-font-sizes);
+  padding-left: 10px;
+  }
 
 p {
   flex: 1; 
   display: flex;
   flex-grow: 1;
-
-  @include font-size($p-font-sizes);
   padding-left: 5px;
   }
 
@@ -150,14 +165,10 @@ p {
   
 a {@include links ($fontLight, $fontLight, $fontGrey, $fontLight);}
 
-a {
-    padding: 10px 10px;
-    font-size: 25px;
-}
 
 div.form {
     justify-content: center;
-    background: $primaryDark;
+    //background: $primaryDark;
     display: block;
 }
 
@@ -174,4 +185,49 @@ form
 .notesArea {
   display: flex;
   order: 2
+}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+}
+
+.tab button {
+  color: $primaryDark;
+  background-color: inherit;
+  border: none;
+  color: $fontLight;
+}
+
+
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 10px 12px;
+  border-top: none;
+}
+
+
+.tablinks {
+  color: $fontLight;
+  background-color: $primaryColor;
+  width: 100%;
+  text-align: left;
+  padding-left: 10px;
+  border: none;
+  @include font-size($tab-font-sizes);
+
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: $primaryDark;
+  color: $fontLight;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding-left: 10px;
+  @include font-size($tab-font-sizes);
+
 }
