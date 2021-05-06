@@ -1,5 +1,5 @@
 # My Awesome Project
-Vidya, sanskrit term for "Knowledge" is an application that allows you take notes, and generate Anki cards from your notes all in one app. Anki is a great tool for spaced repetition, but does not lend itself well for note taking. This application serves to fill that gap.
+Vidya, sanskrit term for "Knowledge" is an application that allows you take notes, generate to do lists, and generate Anki cards from your notes, all in one app. Anki is a great tool for spaced repetition, but does not lend itself well for note taking. This application serves to fill that gap.
 
 **Link to project:** http://recruiters-love-seeing-live-demos.com/
 
